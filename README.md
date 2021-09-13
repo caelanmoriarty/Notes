@@ -42,10 +42,12 @@ create table addressbook(
 ```
 3.表的删除和更新 
 * 删除
- DROP TABLE < 表名 > ; //删除 \
- ALTER TABLE < 表名 > ADD COLUMN < 列的定义 >;//添加列的alter table语句 \
- ALTER TABLE < 表名 > DROP COLUMN < 列名 >; //删除列的alter table语句 \
+ ```javascript
+ DROP TABLE < 表名 > ; //删除 
+ ALTER TABLE < 表名 > ADD COLUMN < 列的定义 >;//添加列的alter table语句 
+ ALTER TABLE < 表名 > DROP COLUMN < 列名 >; //删除列的alter table语句 
  TRUNCATE TABLE TABLE_NAME; //清空表的内容 
+ ```
  * 更新
  ```javascript
  UPDATE <表名>
@@ -58,8 +60,10 @@ LIMIT 子句; --可选
 ```javascript
 ALTER TABLE addressbook ADD COLUMN postal_code CHAR(8) not null;
 ```
-4.向表中插入数据 \
+4.向表中插入数据 
+```javascript
 INSERT INTO <表名> (列1, 列2, 列3, ……) VALUES (值1, 值2, 值3, ……); 
+```
 很多 RDBMS 都支持一次插入多行数据。
 ```javascript
 INSERT INTO productins VALUES ('0002', '打孔器', '办公用品', 500, 320, '2009-09-11'),
