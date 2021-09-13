@@ -1,6 +1,6 @@
 # Notes
 ## Task01
-* 数据库
+* 数据库系统与数据库
  ![Alt pic](https://github.com/caelanmoriarty/Notes/blob/gh-pages/O1CN01kROUDI22ITX6Evayf_!!6000000007097-0-tps-567-333.jpg?raw=true)
 * 表：一种结构化文件，可用来存储某种特定类型的数据。
 * 列：储存表中某部分的信息。
