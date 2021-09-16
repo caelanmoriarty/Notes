@@ -76,3 +76,10 @@ INSERT INTO productins VALUES ('0002', '打孔器', '办公用品', 500, 320, '2
  ```
  练习1.4 \
  drop掉的表无法恢复只能重新插入 再create一个
+ 
+ 
+ ## Task02
+ 动手操作1：
+ ....PNG
+ ### select 语句
+ 
