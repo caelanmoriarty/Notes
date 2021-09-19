@@ -1,7 +1,6 @@
 # Notes
 ## Task01
 * 数据库系统与数据库
- ![Alt pic](https://github.com/caelanmoriarty/Notes/blob/gh-pages/O1CN01kROUDI22ITX6Evayf_!!6000000007097-0-tps-567-333.jpg?raw=true)
 * 表：一种结构化文件，可用来存储某种特定类型的数据。
 * 列：储存表中某部分的信息。
 * 行：数据是按行储存的
@@ -104,6 +103,7 @@ SELECT <列名>, ……
   FROM <表名>
  WHERE <条件表达式>;
  ```
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/O1CN01kROUDI22ITX6Evayf_!!6000000007097-0-tps-567-333.jpg)
 ps.还有加限制条件的比如只检索前四行用top 4 但是我试了好像不行，没这个关键词...是因为不是server或access而是workbench的原因吗？好像不同的DBMS用的不同？哪为路过大佬给我讲讲
 * 注释
 分为1行注释"-- "和多行注释两种"/* */"。
@@ -143,7 +143,7 @@ SELECT product_name, regist_date
  WHERE regist_date>'2009-04-28';
 ```
 **2.2** 
-![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/pp.JPG)
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/pp.JPG)\
 **2.3**
 ```
 SELECT product_name,product_type,sale_price,purchase_price
@@ -157,6 +157,8 @@ from product
 where sale_price*0.9 -purchase_price>100 and ( product_type='办公用品'or product_type='厨房用品');
  ```
  ### 对表进行聚合查询
+ * 聚集函数 aggregate function
+我们经常需要**汇总数据**而不用把它们实际检索出来，为此SQL提供了专门的函数。
 
 
 
