@@ -80,6 +80,6 @@ INSERT INTO productins VALUES ('0002', '打孔器', '办公用品', 500, 320, '2
  
  ## Task02
  动手操作1：\
- ![Alt pic](....PNG）
+ ![Alt pic](https://github.com/caelanmoriarty/Notes/blob/gh-pages/....PNG?raw=true)
  ### select 语句
  
