@@ -158,7 +158,10 @@ where sale_price*0.9 -purchase_price>100 and ( product_type='办公用品'or pro
  ```
  ### 对表进行聚合查询
  * 聚集函数 aggregate function
-我们经常需要**汇总数据**而不用把它们实际检索出来，为此SQL提供了专门的函数。
+我们经常需要**汇总数据**而不用把它们实际检索出来，为此SQL提供了专门的函数。\
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/function.JPG)
+
+
 
 
 
