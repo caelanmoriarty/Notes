@@ -142,7 +142,8 @@ SELECT product_name, regist_date
   FROM product
  WHERE regist_date>'2009-04-28';
 ```
-
+2.2
+https://github.com/caelanmoriarty/Notes/blob/ece37478328970b75304d9627ea06ac593b37cd5/pp.JPG
 
 
 
