@@ -80,6 +80,71 @@ INSERT INTO productins VALUES ('0002', '打孔器', '办公用品', 500, 320, '2
  
  ## Task02
  动手操作1：\
- ![Alt pic](https://github.com/caelanmoriarty/Notes/blob/gh-pages/....PNG?raw=true)
+ ![Alt pic](https://github.com/caelanmoriarty/Notes/blob/7300a29b9710dfdcc53e9f6f63c87edbabf87ed9/....PNG?raw=ture)
  ### select 语句
- 
+  ```javascript
+SELECT prod_name
+FROM Products;
+ ```
+ ps.练习如图（好像上传不上来我好无语(ˉ▽ˉ；)...），表和里面insert进去的数据我都是用的第一节里面的product
+ * 检索所有列
+```javascript
+SELECT *
+FROM Products
+```
+  *为通配符
+  * 检索出不同的值
+ ```javascript
+SELECT DISTINCT vend_id
+FROM Products;
+```
+* 限制条件
+```javascript
+SELECT <列名>, ……
+  FROM <表名>
+ WHERE <条件表达式>;
+ ```
+ps.还有加限制条件的比如只检索前四行用top 4 但是我试了好像不行，没这个关键词...是因为不是server或access而是workbench的原因吗？好像不同的DBMS用的不同？哪为路过大佬给我讲讲
+* 注释
+分为1行注释"-- "和多行注释两种"/* */"。
+```javascript
+/* SELECT prod_name, vend_id
+FROM Products; */
+SELECT prod_name
+FROM Products;
+```
+ or 
+```javascript
+SELECT prod_name--这是一条注释
+FROM Products
+```
+* 一些运算符
+1. NOT 
+```javascript
+SELECT product_name, product_type, sale_price
+  FROM product
+ WHERE NOT sale_price >= 1000;
+```
+2.AND  OR \
+**AND 运算符优先于 OR 运算符**\
+**需要加括号**
+```javascript
+SELECT product_name, product_type, regist_date
+  FROM product
+ WHERE product_type = '办公用品'
+   AND ( regist_date = '2009-09-11'
+        OR regist_date = '2009-09-20');
+```
+练习题
+2.1
+```
+SELECT product_name, regist_date
+  FROM product
+ WHERE regist_date>'2009-04-28';
+```
+
+
+
+
+
+
