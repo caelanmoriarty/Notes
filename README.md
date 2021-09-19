@@ -159,9 +159,71 @@ where sale_price*0.9 -purchase_price>100 and ( product_type='办公用品'or pro
  ### 对表进行聚合查询
  * 聚集函数 aggregate function
 我们经常需要**汇总数据**而不用把它们实际检索出来，为此SQL提供了专门的函数。\
-![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/function.JPG)
-
-
-
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/function.JPG)\
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/cout.JPG)\
+* 数据分组
+使用分组可以将数据分为多个逻辑组，对每个组进行聚集计算。其中前三项用于筛选数据，GROUP BY对筛选出的数据进行处理，书写顺序有严格要求
+```
+SELECT <列名1>,<列名2>, <列名3>, ……
+  FROM <表名>
+ GROUP BY <列名1>, <列名2>, <列名3>, ……;
+```
+* 排序数据/
+有严格的顺序，同GROUP BY
+```
+SELECT prod_name
+FROM Product
+ORDER BY prod_name;
+```
+实操：
+```
+SELECT product_id,sale_price,product_name
+FROM Product
+ORDER BY sale_price,product_name;
+```
+第一遍的时候把sale_price写后面了看着价格怎么不是顺序的然后换过来就ok了。仅在多个行具有相同的price值时才对产品按prod_name进行排序。如果price列中所有的值都是唯一的，则不会按prod_name排序。
+```
+SELECT prod_id, sale_price, prod_name
+FROM Product
+ORDER BY 2, 3;
+```
+这样就是先按第二列排序再按第三列排序。可以混合使用实际列名和相对列位置。/
+默认为升序排列，降序排列为DESC
+```
+SELECT product_id, sale_price, product_name
+FROM Product
+ORDER BY sale_price DESC;
+```
+如果想进行多个排序则
+```
+SELECT prod_id, sale_price, prod_name
+FROM Product
+ORDER BY sale_price DESC, prod_name;
+```
+price列降序，name列升序\
+**PS：GROUP BY中列名不能使用别名，ODER BY 中列名可以使用别名**\
+练习题2.5 \
+sum只能用于数值型；书写顺序错误\
+2.6
+```
+SELECT product_type,SUM(sale_price),SUM(purchase_price)
+from product
+group by product_type
+having sum(sale_price)>sum(purchase_price)*1.5;
+```
+## Task03  请求宽限  20号上午必写完
+## 子查询
+任何sql语句都是查询，但查询一般指select语句。\
+子查询：嵌套在其他查询中的查询
+```
+SELECT product_type, cnt_product
+ FROM (SELECT *
+ FROM (SELECT product_type,
+ COUNT(*) AS cnt_product
+ GROUP BY product_type) AS productsum
+WHERE cnt_product = 4) AS productsum2;
+```
+### 视图
+视图：一个虚拟的表，不同于直接操作数据表，视图是依据 SELECT 语句来创建的。
 
 
