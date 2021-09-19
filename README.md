@@ -98,7 +98,7 @@ FROM Products
 SELECT DISTINCT vend_id
 FROM Products;
 ```
-* 限制条件
+* filter condition/search criteria
 ```javascript
 SELECT <列名>, ……
   FROM <表名>
@@ -136,16 +136,27 @@ SELECT product_name, product_type, regist_date
         OR regist_date = '2009-09-20');
 ```
 练习题
-2.1
+**2.1**
 ```
 SELECT product_name, regist_date
   FROM product
  WHERE regist_date>'2009-04-28';
 ```
-2.2
-https://github.com/caelanmoriarty/Notes/blob/ece37478328970b75304d9627ea06ac593b37cd5/pp.JPG
-
-
+**2.2** 
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/pp.JPG)
+**2.3**
+```
+SELECT product_name,product_type,sale_price,purchase_price
+  FROM product
+ WHERE sale_price-500>=purchase_price
+ ```
+ **2.4**
+ ```
+ select product_name,product_type,sale_price*0.9-purchase_price as profit
+from product
+where sale_price*0.9 -purchase_price>100 and ( product_type='办公用品'or product_type='厨房用品');
+ ```
+ ### 对表进行聚合查询
 
 
 
