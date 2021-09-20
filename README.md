@@ -211,9 +211,9 @@ from product
 group by product_type
 having sum(sale_price)>sum(purchase_price)*1.5;
 ```
-## Task03  请求宽限  20号上午必写完
+## Task03  
 ## SQL函数
-**不可移植性**\
+**不可移植性**
 * 数值处理函数 ABS MOD EXP ROUND
 * 文本处理函数 lower length concat replace substring upper lower left rtrim
 * 日期函数 current_date current_time current_timestamp extract
@@ -243,7 +243,7 @@ SELECT product_type, cnt_product
 PS 作为子查询的SELECT语句只能查询单个列
 * 标量子查询
 返回单一值的子查询。因此，标量子查询的返回值可以用在=或者<>这样需要单一值的比较运算符之中。\
-PS where子句后不能使用聚合函数，但可以使用标量子查询。\
+PS where子句后不能使用聚合函数，但可以使用标量子查询。
 ```
 SELECT product_id, product_name, sale_price
   FROM product
@@ -309,7 +309,7 @@ UPDATE productsum
 3.HAVING\
 4.UNION\
 5.FROM子句中包含多个表\
-PS 尽量不要通过视图来修改表 ！！！\
+PS 尽量不要通过视图来修改表 ！！！
 * 删除视图
 ```
 DROP VIEW <视图名1> [ , <视图名2> …]
@@ -325,4 +325,6 @@ DROP VIEW <视图名1> [ , <视图名2> …]
  ```  
  4.2\
  盲猜会报错\
+ 4.3
+ slec
  
