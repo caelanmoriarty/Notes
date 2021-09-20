@@ -221,7 +221,7 @@ having sum(sale_price)>sum(purchase_price)*1.5;
 
 均已进行实操
 ## 谓词
-
+下午补完这部分。。。TT
 
 
 
@@ -326,5 +326,41 @@ DROP VIEW <视图名1> [ , <视图名2> …]
  4.2\
  盲猜会报错\
  4.3
- slec
+ ```  
+ select product_id,product_name,product_type,sale_price,
+(select avg(sale_price)from product)as sale_price_all
+from product
+```  
+4.4\
+其实我不懂，但这个题下面提示说关联子查询...（关联子查询就没学明白呢还
+```  
+create view avgpricebytype as
+select product_id,product_name,product_type,sale_price,
+(select avg(sale_price)from product p2 
+where p1.product_type=p2.product_type
+group by product_type)as avg_sale_price
+from product p1
+```  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
