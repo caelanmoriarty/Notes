@@ -242,7 +242,13 @@ SELECT product_type, cnt_product
 看到有用IN子句进行嵌套的，运行了一下，觉得用IN子句的比较好理解\
 PS 作为子查询的SELECT语句只能查询单个列
 * 标量子查询
-
+返回单一值的子查询。因此，标量子查询的返回值可以用在=或者<>这样需要单一值的比较运算符之中。\
+PS where子句后不能使用聚合函数，但可以使用标量子查询。\
+```
+SELECT product_id, product_name, sale_price
+  FROM product
+ WHERE sale_price > (SELECT AVG(sale_price) FROM product);
+ ```
 * 关联子查询
 通过一些标志将内外两层的查询连接起来起到过滤数据的目的\
 **关联子查询的执行逻辑和通常的SELECT语句的执行逻辑完成不一样**\
@@ -256,6 +262,67 @@ PS 作为子查询的SELECT语句只能查询单个列
 
 
 ### 视图
-视图：一个虚拟的表，不同于直接操作数据表，视图是依据 SELECT 语句来创建的。
-
-
+视图：一个虚拟的表，不同于直接操作数据表，视图是依据 SELECT 语句来创建的。视图中存放的是sql查询语句（select语句）。使用视图时，会运行视图里的sql查询语句创建出一张临时表。
+```
+create view 视图名称(<视图列名1>,<视图列名2>,...)
+as 
+<select 查询语句>;
+```
+* 基于单表的视图\
+如下，基于product的视图
+```
+CREATE VIEW productsum (product_type, cnt_product)
+AS
+SELECT product_type, COUNT(*)
+  FROM product
+ GROUP BY product_type ;
+```
+* 基于多表的视图
+```
+CREATE VIEW view_shop_product(product_type, sale_price, shop_name)
+AS
+SELECT product_type, sale_price, shop_name
+  FROM product,
+       shop_product
+ WHERE product.product_id = shop_product.product_id;
+```
+ * 在视图的基础上进行查询
+```
+SELECT sale_price, shop_name
+  FROM view_shop_product
+ WHERE product_type = '衣服';
+```
+ * 修改视图结构
+```
+ALTER VIEW <视图名> AS <SELECT语句>
+```
+ * 更新视图内容
+```
+UPDATE productsum
+   SET sale_price = '5000'
+ WHERE product_type = '办公用品';
+ ```
+**限制条件**
+即在限制条件下不能更新视图\
+1.聚合函数\
+2.DISTINCT\
+3.HAVING\
+4.UNION\
+5.FROM子句中包含多个表\
+PS 尽量不要通过视图来修改表 ！！！\
+* 删除视图
+```
+DROP VIEW <视图名1> [ , <视图名2> …]
+ ```
+ 练习4.1
+ ```
+ Create view viewpractice5_1 
+	AS
+    select product_name,sale_price,regist_date
+    from product
+    where sale_price>=1000
+    AND regist_date='2009-09-20'
+ ```  
+ 4.2\
+ 盲猜会报错\
+ 
