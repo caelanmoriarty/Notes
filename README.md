@@ -212,6 +212,19 @@ group by product_type
 having sum(sale_price)>sum(purchase_price)*1.5;
 ```
 ## Task03  请求宽限  20号上午必写完
+## SQL函数
+**不可移植性**\
+* 数值处理函数 ABS MOD EXP ROUND
+* 文本处理函数 
+
+
+
+
+
+![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/cout.JPG)\
+
+
+
 ## 子查询
 任何sql语句都是查询，但查询一般指select语句。\
 子查询：嵌套在其他查询中的查询
