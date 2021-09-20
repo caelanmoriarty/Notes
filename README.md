@@ -241,7 +241,7 @@ SELECT product_type, cnt_product
 ```
 看到有用IN子句进行嵌套的，运行了一下，觉得用IN子句的比较好理解\
 PS 作为子查询的SELECT语句只能查询单个列
-* 标量子查询
+* 标量子查询\
 返回单一值的子查询。因此，标量子查询的返回值可以用在=或者<>这样需要单一值的比较运算符之中。\
 PS where子句后不能使用聚合函数，但可以使用标量子查询。
 ```
@@ -249,7 +249,7 @@ SELECT product_id, product_name, sale_price
   FROM product
  WHERE sale_price > (SELECT AVG(sale_price) FROM product);
  ```
-* 关联子查询
+* 关联子查询\
 通过一些标志将内外两层的查询连接起来起到过滤数据的目的\
 **关联子查询的执行逻辑和通常的SELECT语句的执行逻辑完成不一样**\
 *SELECT*\
