@@ -215,13 +215,17 @@ having sum(sale_price)>sum(purchase_price)*1.5;
 ## SQL函数
 **不可移植性**\
 * 数值处理函数 ABS MOD EXP ROUND
-* 文本处理函数 
+* 文本处理函数 lower length concat replace substring upper lower left rtrim
+* 日期函数 current_date current_time current_timestamp extract
+* 转换函数 CAST COALESCE
+
+均已进行实操
+## 谓词
 
 
 
 
 
-![Aaron Swartz](https://github.com/caelanmoriarty/Notes/raw/gh-pages/cout.JPG)\
 
 
 
@@ -231,11 +235,26 @@ having sum(sale_price)>sum(purchase_price)*1.5;
 ```
 SELECT product_type, cnt_product
  FROM (SELECT *
- FROM (SELECT product_type,
- COUNT(*) AS cnt_product
- GROUP BY product_type) AS productsum
-WHERE cnt_product = 4) AS productsum2;
+	 FROM (SELECT product_type,COUNT(*) AS cnt_product
+ 		GROUP BY product_type) AS productsum
+			WHERE cnt_product = 4) AS productsum2;
 ```
+看到有用IN子句进行嵌套的，运行了一下，觉得用IN子句的比较好理解\
+PS 作为子查询的SELECT语句只能查询单个列
+* 标量子查询
+
+* 关联子查询
+通过一些标志将内外两层的查询连接起来起到过滤数据的目的\
+**关联子查询的执行逻辑和通常的SELECT语句的执行逻辑完成不一样**\
+*SELECT*\
+书写顺序：SELECT》FROM 》WHERE》GROUP BY》HAVE》ORDER BY \
+执行顺序：FROM 》WHERE》GROUP BY》HAVE》SELECT》ORDER BY \
+*关联子查询*\
+1）先从主查询的Product表中product _type列取出第一个值，进入子查询中，得到子查询结果，然后返回父查询，判断父查询的where子句条件，则返回整个语句的第1条结果。\
+2）重复上述操作，直到所有主查询中的Product表中product _type列记录取完为止。得出整个语句的结果集，就是最后的答案。\
+。。。。。有待理解。。。。
+
+
 ### 视图
 视图：一个虚拟的表，不同于直接操作数据表，视图是依据 SELECT 语句来创建的。
 
