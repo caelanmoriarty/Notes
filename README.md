@@ -221,9 +221,57 @@ having sum(sale_price)>sum(purchase_price)*1.5;
 
 均已进行实操
 ## 谓词
-下午补完这部分。。。TT
+返回值为真值的函数。包括TRUE,FALSE,UNKNOWN
+* LIKE \
+**1.前方一致**\
+%代表百分号通配符，如ddd%即为检索任意以ddd开头的词。%告诉DBMS接受ddd之后的任意字符，不管它有多少字符。\
+还有一种——下划线通配符，和百分号不同的是只能匹配一个字符。
+```
+SELECT *
+FROM samplelike
+WHERE strcol LIKE 'ddd%';
+```
+输出dddabc \
+**2.中间一致**
+```
+SELECT *
+FROM samplelike
+WHERE strcol LIKE '%ddd%';
+```
+输出“abcddd”,“dddabc”,“abdddc”\
+**3.后方一致**
+```
+SELECT *
+FROM samplelike
+WHERE strcol LIKE '%ddd';
+```
+输出“abcddd“\
+* IS NULL,IS NOT NULL \
+空值检查
+```
+SELECT product_name, purchase_price
+FROM product
+WHERE purchase_price IS NULL;
+```
+* BETWEEN 
+范围查询。\
+闭区间
+```
+SELECT product_name, sale_price
+FROM product
+WHERE sale_price BETWEEN 100 AND 1000;
+```
 
-
+开区间
+```
+SELECT product_name, sale_price
+FROM product
+WHERE sale_price > 100
+AND sale_price < 1000;
+```
+* IN \
+在前面子查询我也写到了，这里看到的解释：“子查询即可保持 sql 语句不变，极大提高了程序的可维护性，这是系统开发中需要重点考虑的内容。”
+* EXIST
 
 
 
